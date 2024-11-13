@@ -19,3 +19,7 @@ def test_select_random_animal():
         "URUTU", "UMBRELLABIRD", "URCHIN"
     ]
 
+# Function will test to make sure vowel is in animal selected
+def test_check_vowel_in_word():
+    assert check_vowel_in_word('A', 'ALLIGATOR') == True
+    assert check_vowel_in_word('E', 'ALLIGATOR') == False
