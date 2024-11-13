@@ -78,27 +78,32 @@ while not vowel_guessed:
     # This will be use to display partially animal's name by also having updated animal_display list 
     print("Current Display:", " ".join(animal_display))
 
-# Allow user to guess other letters
+# After user has entered a vowel included in animal to be guessed we will notify that he/she has 3 tries to complete 
+# the animal's name
 print("You now have 3 more tries to guess to complete animal's name.")
+
+# While loop will be based on attempts which will run if its less then 3 and if animal_display still has _ instead of letter
 while attempts < 3 and '_' in animal_display:
+    # we are keeping everything in Uppercase to avoid errors if user enters the letter but in lowercase
     user_input = input("Guess another letter: ").upper()
     
-    # Check if the guessed letter is in the animal name
+    # IF letter entered by user is in animal to be guessed then we will inform user
     if user_input in rand_selected_animal:
         print(f"Good guess! '{user_input}' is in the animal's name.")
         
-        # Reveal the guessed letter's position(s) in the display
+        # Same for loop as in first while loop - we will iterate and enter the letter in index where it is originally
         for count in range(animal_length):
             if user_input == animal_selected_list[count]:
                 animal_display[count] = user_input
+    # IF letter is not included in animal to be guessed then we are notifiying user and increment attempts by 1             
     else:
         print(f"Sorry! '{user_input}' is not in the animal's name.")
         attempts += 1
     
-    # Show the updated display
+    # This show current animal to be guessed - with letters guessed and still _ remaining
     print("Current Display:", " ".join(animal_display))
 
-# Check if the game was won or lost
+# This will check if user has won or lose 
 if '_' not in animal_display:
     print("Congratulations! You've guessed the animal:", rand_selected_animal)
 else:
