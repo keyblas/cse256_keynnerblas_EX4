@@ -25,6 +25,13 @@ predefined_word_list = ["Alligator", "Alpaca", "Anaconda", "Ant", "Armadillo",
 def select_random_animal():
     return random.choice(predefined_word_list).upper()
 
+# Function will be use to check that vowel selected by user is included in animal
+def check_vowel_in_word(vowel, animal):
+    return vowel in animal
+
+# Since we want user to first enter a Vowel we will limit this to a set 
+vowels = {'A', 'E', 'I', 'O', 'U'}
+
 
 # variable rand_selected_animal will be used to stored randomly selected animal by calling Function select_random_animal()
 rand_selected_animal = select_random_animal()
@@ -41,12 +48,7 @@ print(rand_selected_animal)
 
 # We will ask user first to enter a vowel since the game is limited to only animals that start 
 # with a vowel
-user_input = str(input("Hello! Welcome to 'Guess the Animal Word Game' \n"
-                       "Please select a vowel to see if it is included in the animal's name!\n"
-                       )).upper()
-
-# Since we want user to first enter a Vowel we will limit this to a set 
-vowels = {'A', 'E', 'I', 'O', 'U'}
+print("Hello! Welcome to 'Guess the Animal Word Game'")
 
 # we will also need to keep the number of attempts 
 attempts = 0
@@ -66,7 +68,7 @@ while not vowel_guessed:
         continue
 
     # IF vowel entered is included in animal stored in variable rand_selected_animal
-    if user_input in rand_selected_animal:
+    if check_vowel_in_word(user_input, rand_selected_animal):
         print(f"Good start! The vowel '{user_input}' is in the animal's name.")
         # For loop will be used to identify in which index vowel is located and also based on index it will be added to 
         # animal_display list to give user partial information of animal to be guessed
