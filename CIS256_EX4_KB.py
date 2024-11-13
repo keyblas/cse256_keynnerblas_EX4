@@ -64,13 +64,18 @@ while not vowel_guessed:
     # IF vowel entered is included in animal stored in variable rand_selected_animal
     if user_input in rand_selected_animal:
         print(f"Good start! The vowel '{user_input}' is in the animal's name.")
+        # For loop will be used to identify in which index vowel is located and also based on index it will be added to 
+        # animal_display list to give user partial information of animal to be guessed
         for count in range(animal_length):
             if user_input == animal_selected_list[count]:
                 animal_display[count] = user_input
-        vowel_guessed = True  # Exit loop after correct vowel
+        # Once a vowel that is included in animal is found we will exit this while loop and proceed with next one        
+        vowel_guessed = True  
     else:
+        # IF vowel is not included in animal to be guessed then we will inform user
         print(f"Sorry! The vowel '{user_input}' is not in the animal's name.")
     
+    # This will be use to display partially animal's name by also having updated animal_display list 
     print("Current Display:", " ".join(animal_display))
 
 # Allow user to guess other letters
