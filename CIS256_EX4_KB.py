@@ -21,9 +21,13 @@ predefined_word_list = ["Alligator", "Alpaca", "Anaconda", "Ant", "Armadillo",
                         "Orca", "Owl", "Oyster", "Ostrich", "Oriole", "Utonagan", "Unau", 
                         "Urutu", "Umbrellabird", "Urchin"]
 
-# Using built in function random we will select a random animal name everytime we run the code 
-# and store the animal's name in variable rand_selected_animal
-rand_selected_animal = random.choice(predefined_word_list).upper()
+# Function will be used to select an animal from predefined_word_list randomly and return it
+def select_random_animal():
+    return random.choice(predefined_word_list).upper()
+
+
+# variable rand_selected_animal will be used to stored randomly selected animal by calling Function select_random_animal()
+rand_selected_animal = select_random_animal()
 animal_selected_list = list(rand_selected_animal)
 
 # We will store the length of random animal selected to show user how many letters animal to be guessed
